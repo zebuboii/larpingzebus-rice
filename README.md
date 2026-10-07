@@ -1,4 +1,4 @@
-# Zebu Rice™
+# Zebu Rice
 
 Hyprland + Waybar + Kitty + Rofi + Wlogout + Hyprlock + Matugen-rice.
 
