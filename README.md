@@ -5,7 +5,7 @@ Hyprland + Waybar + Kitty + Rofi + Wlogout + Hyprlock + Matugen-rice.
 ## Install (Arch)
 
 ```bash
-git clone github.com/zebuboii/larpingzebus-rice
+git clone https://github.com/zebuboii/larpingzebus-rice
 cd larpingzebus-rice
 ./install.sh
 ```
