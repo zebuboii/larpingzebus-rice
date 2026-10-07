@@ -1,0 +1,36 @@
+[config]
+reload_apps = true
+
+[templates.hyprland_lua]
+input_path = '~/.config/matugen/templates/hyprland-colors.lua'
+output_path = '~/.config/hypr/colors.lua'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi.rasi'
+output_path = '~/.config/rofi/matugen.rasi'
+
+[templates.rofi_wallpaper]
+input_path = '~/.config/matugen/templates/rofi-wallpaper.rasi'
+output_path = '~/.config/rofi/wallpaper.rasi'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar-colors.css'
+output_path = '~/.config/waybar/colors.css'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/themes/Matugen.conf'
+post_hook = 'kitty +kitten themes --reload-in=all Matugen || true'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-theme'
+output_path = '~/.config/cava/themes/matugen'
+post_hook = 'pkill -USR2 cava || true'
+
+[templates.starship]
+input_path = '~/.config/matugen/templates/starship.toml'
+output_path = '~/.config/starship.toml'
+
+[templates.fastfetch]
+input_path = '~/.config/matugen/templates/fastfetch.jsonc'
+output_path = '~/.config/fastfetch/config.jsonc'

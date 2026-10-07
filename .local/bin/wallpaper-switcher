@@ -1,0 +1,38 @@
+#!/bin/bash
+
+WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+MONITOR="$(hyprctl monitors -j | grep -o'"name": "[^"]*"' | head -1 | cut -d'"' -f4)"
+HYPRLOCK="$HOME/.config/hypr/hyprlock.conf"
+
+CHOICE=$(
+    find "$WALLPAPER_DIR" -type f \
+        \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.webp" \) |
+    sort |
+    while read -r file; do
+        name="$(basename "$file")"
+        printf '%s\0icon\x1f%s\n' "$name" "$file"
+    done |
+    rofi \
+        -dmenu \
+        -show-icons \
+        -p "Wallpaper" \
+        -theme "$HOME/.config/rofi/wallpaper.rasi"
+)
+
+[ -z "$CHOICE" ] && exit 0
+
+WALLPAPER="$WALLPAPER_DIR/$CHOICE"
+
+# Remember current wallpaper
+echo "$WALLPAPER" > "$HOME/.cache/current-wallpaper"
+
+# Set wallpaper with awww
+awww img \
+    --outputs "$MONITOR" \
+    --transition-type random \
+    --transition-duration 1 \
+    "$WALLPAPER"
+
+matugen image --source-color-index 2 "$WALLPAPER"
+sed -i "/^background {/,/^}/ s|^[[:space:]]*path =.*|    path = $WALLPAPER|" "$HYPRLOCK"
+hyprctl reload

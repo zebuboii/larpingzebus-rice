@@ -1,0 +1,12 @@
+[color]
+; background = default
+foreground = '{{ colors.primary.default.hex }}'
+
+gradient = 1
+gradient_color_1 = '{{ colors.primary.default.hex | set_lightness: 93 }}'
+gradient_color_2 = '{{ colors.primary.default.hex | set_lightness: 88 }}'
+gradient_color_3 = '{{ colors.primary.default.hex | set_lightness: 84 }}'
+gradient_color_4 = '{{ colors.primary.default.hex }}'
+
+horizontal_gradient = 0
+blend_direction = 'up'

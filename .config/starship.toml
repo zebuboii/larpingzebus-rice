@@ -1,0 +1,52 @@
+format = """
+[](mauve)\
+$os\
+$username\
+[](bg:mauve fg:mauve)\
+$directory\
+[](fg:mauve)\
+$character"""
+
+palette = 'catppuccin_mocha'
+
+[os]
+disabled = false
+style = "bg:mauve fg:crust"
+
+[os.symbols]
+Arch = "󰣇 "
+
+[username]
+show_always = true
+style_user = "bg:mauve fg:crust"
+style_root = "bg:mauve fg:crust"
+format = '[ $user]($style)'
+
+[directory]
+style = "bg:mauve fg:crust"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[character]
+success_symbol = ' [🚀](bold mauve) '
+error_symbol = ' [🚀](bold red) '
+disabled = false
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#f3b3e4"
+red = "#ffb4ab"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#ecdfe5"
+crust = "#171216"

@@ -1,0 +1,131 @@
+* {
+    bg: #171216;
+    surface: #241e22;
+    overlay: #2f282d;
+    text: #ecdfe5;
+    muted: #d1c2cb;
+    sage: #f3b3e4;
+    moss: #66355f;
+
+    font: "JetBrains Mono 12";
+    background-color: transparent;
+    text-color: @text;
+}
+
+window {
+    width: 750px;
+    height: 306px;
+
+    padding: 8px;
+
+    border: 2px;
+    border-color: @sage;
+    border-radius: 12px;
+
+    background-color: @bg;
+
+    children: [ mainbox ];
+}
+
+mainbox {
+    margin: 3px;
+    padding: 3px;
+
+    spacing: 0px;
+
+    background-color: transparent;
+
+    children: [
+        inputbar,
+        listview
+    ];
+}
+
+inputbar {
+    margin: 6px 10px 10px 10px;
+    padding: 8px 10px;
+
+    border: 1px;
+    border-color: @overlay;
+    border-radius: 12px;
+
+    background-color: @surface;
+
+    children: [
+        prompt,
+        entry
+    ];
+}
+
+prompt {
+    padding: 0px;
+    text-color: @muted;
+}
+
+entry {
+    padding: 0px;
+    text-color: @text;
+}
+
+listview {
+    margin: 0px;
+    padding: 3px;
+
+    spacing: 8px;
+
+    columns: 2;
+    lines: 2;
+    fixed-columns: true;
+
+    scrollbar: false;
+
+    background-color: transparent;
+}
+
+element {
+    orientation: vertical;
+
+    margin: 4px;
+    padding: 6px;
+
+    border: 0px;
+    border-radius: 12px;
+
+    background-color: transparent;
+
+    children: [
+        element-icon,
+        element-text
+    ];
+}
+
+element selected {
+    border: 1px;
+    border-color: @overlay;
+    border-radius: 12px;
+
+    background-color: @surface;
+}
+
+element-icon {
+    size: 160px;
+
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+
+    background-color: transparent;
+}
+
+element-text {
+    margin: 6px 4px 2px 4px;
+    padding: 0px;
+
+    horizontal-align: 0.5;
+
+    background-color: transparent;
+    text-color: @text;
+}
+
+element-text selected {
+    text-color: @moss;
+}

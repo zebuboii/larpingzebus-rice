@@ -1,0 +1,77 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "reload_style_on_change": true,
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "group/media"
+    ],
+
+    "modules-right": [
+        "group/system"
+    ],
+
+    "group/media": {
+        "orientation": "horizontal",
+        "modules": [
+            "clock",
+            "mpris"
+        ]
+    },
+
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/ram",
+            "custom/cpu",
+            "custom/temp",
+            "custom/audio"
+        ]
+    },
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate"
+    },
+
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "tooltip": false
+    },
+
+    "mpris": {
+        "format": " {artist} - {title}",
+        "format-paused": " {artist} - {title}",
+        "tooltip": false
+    },
+
+    "custom/audio": {
+        "exec": "sink=$(pactl get-default-sink); v=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf \"%d\", $2*100}'); if echo \"$sink\" | grep -qi hdmi; then echo \"\uf26c ${v}%\"; else echo \" ${v}%\"; fi",
+        "interval": 1,
+        "tooltip": false,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "custom/ram": {
+        "exec": "free -b | awk '/^Mem:/ {printf \" %.1f/%.1f GB\", $3/1024/1024/1024, $2/1024/1024/1024}'",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    "custom/cpu": {
+        "exec": "top -bn1 | awk '/Cpu\\(s\\)/ {printf \" %d%%\", 100-$8}'",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    "custom/temp": {
+        "exec": "sensors | awk '/Package id 0:|Tctl:|Tdie:|temp1:/ {printf \"\uf2c9 %.0f°C\", $2; exit}'",
+        "interval": 2,
+        "tooltip": false
+    }
+}

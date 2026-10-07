@@ -1,0 +1,99 @@
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+/* ── WORKSPACES ────────────────────────────────────── */
+
+#workspaces {
+    background: rgba(30, 30, 46, 0.85);
+    border: 1px solid @border;
+    border-radius: 999px;
+    margin: 5px 3px 5px 10px;
+    padding: 0 3px;
+}
+
+#workspaces button {
+    min-height: 0;
+    padding: 0 2px;
+    margin: 4px 2px;
+    color: @text;
+    background: transparent;
+    border: none;
+    border-radius: 999px;
+
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        padding 180ms ease;
+}
+
+#workspaces button.active {
+    padding: 0 5px;
+    background: @active;
+    color: @background;
+}
+
+/* ── SHARED GROUP PILLS ────────────────────────────── */
+
+.modules-center,
+.modules-right {
+    background: rgba(30, 30, 46, 0.85);
+    border: 1px solid @border;
+    border-radius: 999px;
+    margin: 5px 3px;
+    padding: 0 3px;
+}
+
+.modules-center box,
+.modules-right box {
+    background: transparent;
+    border-radius: 999px;
+}
+
+/* ── CENTER: CLOCK + MUSIC ────────────────────────── */
+
+.modules-center #clock,
+.modules-center #mpris {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0 9px;
+}
+
+.modules-center #clock {
+    color: @text;
+}
+
+.modules-center #mpris {
+    color: @Spotify;
+}
+
+/* ── RIGHT: SYSTEM STATS ──────────────────────────── */
+
+.modules-right #custom-ram,
+.modules-right #custom-cpu,
+.modules-right #custom-temp,
+.modules-right #custom-audio {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0 10px;
+    color: @text;
+}
+
+/* ── EDGE SPACING ──────────────────────────────────── */
+
+.modules-right {
+    margin-right: 10px;
+}
